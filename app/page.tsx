@@ -25,12 +25,13 @@ export default function Home() {
             </Link>
           </div>
           
-          <div className="flex items-center gap-2 md:gap-4">
-            <Link href="/dashboard" className="hidden sm:block btn-secondary text-sm py-2 px-3 md:px-6">
-              Dashboard
+          <div className="flex items-center gap-2">
+            <Link href="/dashboard" className="text-xs sm:text-sm py-2 px-3 sm:px-4 rounded-lg border border-[#0D4F3C] text-[#0D4F3C] hover:bg-[#0D4F3C] hover:text-white transition-all">
+              <span className="sm:hidden">📊</span>
+              <span className="hidden sm:inline">Dashboard</span>
             </Link>
-            <Link href="/agents" className="btn-primary text-xs sm:text-sm py-2 px-3 md:px-6">
-              <span className="sm:hidden">Agent</span>
+            <Link href="/agents" className="btn-primary text-xs sm:text-sm py-2 px-3 sm:px-4">
+              <span className="sm:hidden">🤖</span>
               <span className="hidden sm:inline">I&apos;m an Agent</span>
             </Link>
           </div>
