@@ -235,7 +235,7 @@ export const seedProducts = mutation({
         priceUsdcCents: 2499,
         images: ["/products/firstaid.jpg"],
         variants: [],
-        restockIntervalDays: null,
+        restockIntervalDays: undefined,
         tags: ["safety", "emergency", "bandages"],
         inStock: true,
       },
