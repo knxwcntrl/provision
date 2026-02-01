@@ -7,10 +7,10 @@ export default function Home() {
       <nav className="fixed top-0 left-0 right-0 z-50 glass">
         <div className="container-custom flex items-center justify-between py-4 px-6">
           <Link href="/" className="flex items-center gap-2">
-            <div className="w-10 h-10 rounded-xl bg-[#0D4F3C] flex items-center justify-center">
-              <span className="text-white font-bold text-xl">P</span>
+            <div className="w-8 h-8 md:w-10 md:h-10 rounded-lg md:rounded-xl bg-[#0D4F3C] flex items-center justify-center">
+              <span className="text-white font-bold text-lg md:text-xl">P</span>
             </div>
-            <span className="text-xl font-bold text-[#0D4F3C]">Provision</span>
+            <span className="text-lg md:text-xl font-bold text-[#0D4F3C]">Provision</span>
           </Link>
           
           <div className="hidden md:flex items-center gap-8">
@@ -25,12 +25,13 @@ export default function Home() {
             </Link>
           </div>
           
-          <div className="flex items-center gap-4">
-            <Link href="/dashboard" className="btn-secondary text-sm py-2">
+          <div className="flex items-center gap-2 md:gap-4">
+            <Link href="/dashboard" className="hidden sm:block btn-secondary text-sm py-2 px-3 md:px-6">
               Dashboard
             </Link>
-            <Link href="/agents" className="btn-primary text-sm py-2">
-              I&apos;m an Agent
+            <Link href="/agents" className="btn-primary text-xs sm:text-sm py-2 px-3 md:px-6">
+              <span className="sm:hidden">Agent</span>
+              <span className="hidden sm:inline">I&apos;m an Agent</span>
             </Link>
           </div>
         </div>
