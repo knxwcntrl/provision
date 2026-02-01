@@ -14,7 +14,7 @@ export const list = query({
     if (args.category) {
       products = await ctx.db
         .query("products")
-        .withIndex("by_category", (q) => q.eq("category", args.category))
+        .withIndex("by_category", (q) => q.eq("category", args.category!))
         .collect();
     } else {
       products = await ctx.db.query("products").collect();
