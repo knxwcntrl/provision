@@ -9,6 +9,7 @@
  */
 
 import type * as agents from "../agents.js";
+import type * as humans from "../humans.js";
 import type * as orders from "../orders.js";
 import type * as products from "../products.js";
 import type * as seed from "../seed.js";
@@ -21,6 +22,7 @@ import type {
 
 declare const fullApi: ApiFromModules<{
   agents: typeof agents;
+  humans: typeof humans;
   orders: typeof orders;
   products: typeof products;
   seed: typeof seed;
