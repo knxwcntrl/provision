@@ -3,17 +3,26 @@
 import { useQuery } from "convex/react";
 import { api } from "../../convex/_generated/api";
 import Link from "next/link";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export default function ProductsPage() {
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
+  const [isConfigured, setIsConfigured] = useState(true);
   
-  const products = useQuery(api.products.list, {
-    category: selectedCategory || undefined,
-    inStockOnly: true,
-  });
+  useEffect(() => {
+    if (!process.env.NEXT_PUBLIC_CONVEX_URL) {
+      setIsConfigured(false);
+    }
+  }, []);
   
-  const categories = useQuery(api.products.getCategories);
+  const products = useQuery(api.products.list, 
+    isConfigured ? {
+      category: selectedCategory || undefined,
+      inStockOnly: true,
+    } : "skip"
+  );
+  
+  const categories = useQuery(api.products.getCategories, isConfigured ? {} : "skip");
 
   const formatPrice = (cents: number) => {
     return `$${(cents / 100).toFixed(2)}`;
