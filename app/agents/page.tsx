@@ -257,7 +257,7 @@ export default function AgentRegistrationPage() {
                   </div>
                 </div>
 
-                <div className="mt-6 flex gap-4">
+                <div className="mt-6 flex flex-col sm:flex-row gap-3 sm:gap-4">
                   <Link
                     href="/docs"
                     className="flex-1 py-3 bg-[#0D4F3C] text-white text-center rounded-xl font-semibold hover:bg-[#1A6B52] transition-colors"

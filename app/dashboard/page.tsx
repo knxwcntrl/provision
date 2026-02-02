@@ -232,13 +232,13 @@ export default function DashboardPage() {
 
               {showAddAddress && (
                 <form onSubmit={handleAddAddress} className="mb-4 p-4 bg-gray-50 rounded-xl">
-                  <div className="grid grid-cols-2 gap-3 mb-3">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-3">
                     <input
                       type="text"
                       placeholder="Label (e.g., Home)"
                       value={addressForm.label}
                       onChange={(e) => setAddressForm({ ...addressForm, label: e.target.value })}
-                      className="px-3 py-2 border rounded-lg text-sm"
+                      className="w-full px-3 py-2 border rounded-lg text-sm"
                       required
                     />
                     <input
@@ -246,7 +246,7 @@ export default function DashboardPage() {
                       placeholder="Country"
                       value={addressForm.country}
                       onChange={(e) => setAddressForm({ ...addressForm, country: e.target.value })}
-                      className="px-3 py-2 border rounded-lg text-sm"
+                      className="w-full px-3 py-2 border rounded-lg text-sm"
                       required
                     />
                   </div>
@@ -265,13 +265,13 @@ export default function DashboardPage() {
                     onChange={(e) => setAddressForm({ ...addressForm, line2: e.target.value })}
                     className="w-full px-3 py-2 border rounded-lg text-sm mb-3"
                   />
-                  <div className="grid grid-cols-3 gap-3 mb-3">
+                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-3">
                     <input
                       type="text"
                       placeholder="City"
                       value={addressForm.city}
                       onChange={(e) => setAddressForm({ ...addressForm, city: e.target.value })}
-                      className="px-3 py-2 border rounded-lg text-sm"
+                      className="w-full px-3 py-2 border rounded-lg text-sm"
                       required
                     />
                     <input
@@ -279,7 +279,7 @@ export default function DashboardPage() {
                       placeholder="State"
                       value={addressForm.state}
                       onChange={(e) => setAddressForm({ ...addressForm, state: e.target.value })}
-                      className="px-3 py-2 border rounded-lg text-sm"
+                      className="w-full px-3 py-2 border rounded-lg text-sm"
                       required
                     />
                     <input
@@ -287,7 +287,7 @@ export default function DashboardPage() {
                       placeholder="ZIP"
                       value={addressForm.zip}
                       onChange={(e) => setAddressForm({ ...addressForm, zip: e.target.value })}
-                      className="px-3 py-2 border rounded-lg text-sm"
+                      className="w-full px-3 py-2 border rounded-lg text-sm"
                       required
                     />
                   </div>
@@ -355,7 +355,7 @@ export default function DashboardPage() {
                       <div className="flex items-center justify-between">
                         <div>
                           <span className="font-medium text-[#1A1A1A]">{agent.name}</span>
-                          <p className="text-xs text-[#6B7280] font-mono truncate max-w-[200px]">
+                          <p className="text-xs text-[#6B7280] font-mono truncate max-w-[120px] sm:max-w-[200px]">
                             {agent.publicKey}
                           </p>
                         </div>
@@ -382,42 +382,66 @@ export default function DashboardPage() {
             {orders?.length === 0 ? (
               <p className="text-[#6B7280]">No orders yet.</p>
             ) : (
-              <div className="overflow-x-auto">
-                <table className="w-full">
-                  <thead>
-                    <tr className="text-left text-sm text-[#6B7280] border-b">
-                      <th className="pb-3 font-medium">Order</th>
-                      <th className="pb-3 font-medium">Items</th>
-                      <th className="pb-3 font-medium">Total</th>
-                      <th className="pb-3 font-medium">Status</th>
-                      <th className="pb-3 font-medium">Date</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {orders?.slice(0, 10).map((order) => (
-                      <tr key={order._id} className="border-b last:border-0">
-                        <td className="py-3">
-                          <span className="font-mono text-sm">{order.orderNumber}</span>
-                        </td>
-                        <td className="py-3">
-                          <span className="text-sm">{order.items.length} items</span>
-                        </td>
-                        <td className="py-3">
-                          <span className="font-medium">{formatPrice(order.totalUsdcCents)}</span>
-                        </td>
-                        <td className="py-3">
-                          <span className={`text-xs px-2 py-1 rounded-full font-medium ${getStatusColor(order.status)}`}>
-                            {order.status}
-                          </span>
-                        </td>
-                        <td className="py-3 text-sm text-[#6B7280]">
-                          {new Date(order.createdAt).toLocaleDateString()}
-                        </td>
+              <>
+                {/* Mobile: Card view */}
+                <div className="block sm:hidden space-y-3">
+                  {orders?.slice(0, 10).map((order) => (
+                    <div key={order._id} className="border rounded-xl p-4">
+                      <div className="flex items-center justify-between mb-2">
+                        <span className="font-mono text-sm font-medium">{order.orderNumber}</span>
+                        <span className={`text-xs px-2 py-1 rounded-full font-medium ${getStatusColor(order.status)}`}>
+                          {order.status}
+                        </span>
+                      </div>
+                      <div className="flex items-center justify-between text-sm">
+                        <span className="text-[#6B7280]">{order.items.length} items</span>
+                        <span className="font-medium">{formatPrice(order.totalUsdcCents)}</span>
+                      </div>
+                      <div className="text-xs text-[#6B7280] mt-2">
+                        {new Date(order.createdAt).toLocaleDateString()}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+                
+                {/* Desktop: Table view */}
+                <div className="hidden sm:block overflow-x-auto">
+                  <table className="w-full min-w-[500px]">
+                    <thead>
+                      <tr className="text-left text-sm text-[#6B7280] border-b">
+                        <th className="pb-3 font-medium">Order</th>
+                        <th className="pb-3 font-medium">Items</th>
+                        <th className="pb-3 font-medium">Total</th>
+                        <th className="pb-3 font-medium">Status</th>
+                        <th className="pb-3 font-medium">Date</th>
                       </tr>
-                    ))}
-                  </tbody>
-                </table>
-              </div>
+                    </thead>
+                    <tbody>
+                      {orders?.slice(0, 10).map((order) => (
+                        <tr key={order._id} className="border-b last:border-0">
+                          <td className="py-3">
+                            <span className="font-mono text-sm">{order.orderNumber}</span>
+                          </td>
+                          <td className="py-3">
+                            <span className="text-sm">{order.items.length} items</span>
+                          </td>
+                          <td className="py-3">
+                            <span className="font-medium">{formatPrice(order.totalUsdcCents)}</span>
+                          </td>
+                          <td className="py-3">
+                            <span className={`text-xs px-2 py-1 rounded-full font-medium ${getStatusColor(order.status)}`}>
+                              {order.status}
+                            </span>
+                          </td>
+                          <td className="py-3 text-sm text-[#6B7280]">
+                            {new Date(order.createdAt).toLocaleDateString()}
+                          </td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+              </>
             )}
           </div>
         </div>

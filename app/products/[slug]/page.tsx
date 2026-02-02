@@ -107,14 +107,14 @@ export default function ProductDetailPage() {
       {/* Breadcrumb */}
       <div className="pt-24 px-6">
         <div className="max-w-7xl mx-auto">
-          <div className="flex items-center gap-2 text-sm text-[#6B7280]">
-            <Link href="/products" className="hover:text-[#0D4F3C]">Products</Link>
+          <div className="flex flex-wrap items-center gap-1 sm:gap-2 text-sm text-[#6B7280]">
+            <Link href="/products" className="hover:text-[#0D4F3C] whitespace-nowrap">Products</Link>
             <span>/</span>
-            <Link href={`/products?category=${product.category}`} className="hover:text-[#0D4F3C]">
+            <Link href={`/products?category=${product.category}`} className="hover:text-[#0D4F3C] whitespace-nowrap">
               {product.category}
             </Link>
             <span>/</span>
-            <span className="text-[#1A1A1A]">{product.name}</span>
+            <span className="text-[#1A1A1A] truncate max-w-[150px] sm:max-w-none">{product.name}</span>
           </div>
         </div>
       </div>
