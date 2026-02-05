@@ -104,16 +104,6 @@ export default function DashboardPage() {
   if (!humanId) {
     return (
       <main className="min-h-screen bg-[#FFF8E7]">
-        <nav className="fixed top-0 left-0 right-0 z-50 glass">
-          <div className="max-w-7xl mx-auto flex items-center justify-between py-4 px-6">
-            <Link href="/" className="flex items-center gap-2">
-              <div className="w-8 h-8 md:w-10 md:h-10 rounded-lg md:rounded-xl bg-[#0D4F3C] flex items-center justify-center">
-                <span className="text-white font-bold text-lg md:text-xl">P</span>
-              </div>
-              <span className="text-lg md:text-xl font-bold text-[#0D4F3C]">Provision</span>
-            </Link>
-          </div>
-        </nav>
 
         <div className="pt-32 pb-20 px-6">
           <div className="max-w-md mx-auto">
@@ -165,31 +155,8 @@ export default function DashboardPage() {
   // Dashboard
   return (
     <main className="min-h-screen bg-[#FFF8E7]">
-      {/* Navigation */}
-      <nav className="fixed top-0 left-0 right-0 z-50 glass">
-        <div className="max-w-7xl mx-auto flex items-center justify-between py-4 px-6">
-          <Link href="/" className="flex items-center gap-2">
-            <div className="w-8 h-8 md:w-10 md:h-10 rounded-lg md:rounded-xl bg-[#0D4F3C] flex items-center justify-center">
-              <span className="text-white font-bold text-lg md:text-xl">P</span>
-            </div>
-            <span className="text-lg md:text-xl font-bold text-[#0D4F3C]">Provision</span>
-          </Link>
-          
-          <div className="flex items-center gap-2">
-            <Link href="/products" className="text-xs sm:text-sm py-1.5 sm:py-2 px-3 sm:px-4 rounded-lg border border-[#0D4F3C] text-[#0D4F3C] hover:bg-[#0D4F3C] hover:text-white transition-all font-medium">
-              Products
-            </Link>
-            <button
-              onClick={handleLogout}
-              className="text-xs sm:text-sm py-1.5 sm:py-2 px-3 sm:px-4 rounded-lg text-red-600 hover:bg-red-50 transition-all font-medium"
-            >
-              Logout
-            </button>
-          </div>
-        </div>
-      </nav>
-
-      <div className="pt-28 pb-20 px-6">
+      
+      <div className="pt-32 pb-20 px-6">
         <div className="max-w-6xl mx-auto">
           {/* Header */}
           <div className="mb-8">
@@ -447,20 +414,6 @@ export default function DashboardPage() {
         </div>
       </div>
 
-      {/* Footer */}
-      <footer className="bg-[#1A1A1A] text-white py-8 px-6">
-        <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center">
-          <div className="flex items-center gap-2 mb-4 md:mb-0">
-            <div className="w-8 h-8 rounded-lg bg-[#0D4F3C] flex items-center justify-center">
-              <span className="text-white font-bold">P</span>
-            </div>
-            <span className="font-bold">Provision</span>
-          </div>
-          <p className="text-white/40 text-sm">
-            © 2026 Provision. Agents provide. Humans thrive.
-          </p>
-        </div>
-      </footer>
-    </main>
+          </main>
   );
 }

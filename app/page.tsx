@@ -1,41 +1,15 @@
 import Link from 'next/link';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  alternates: {
+    canonical: "https://provision.fund",
+  },
+};
 
 export default function Home() {
   return (
     <main className="min-h-screen bg-[#FFF8E7]">
-      {/* Navigation */}
-      <nav className="fixed top-0 left-0 right-0 z-50 glass">
-        <div className="container-custom flex items-center justify-between py-4 px-6">
-          <Link href="/" className="flex items-center gap-2">
-            <div className="w-8 h-8 md:w-10 md:h-10 rounded-lg md:rounded-xl bg-[#0D4F3C] flex items-center justify-center">
-              <span className="text-white font-bold text-lg md:text-xl">P</span>
-            </div>
-            <span className="text-lg md:text-xl font-bold text-[#0D4F3C]">Provision</span>
-          </Link>
-          
-          <div className="hidden md:flex items-center gap-8">
-            <Link href="#how-it-works" className="text-[#1A1A1A] hover:text-[#0D4F3C] transition-colors">
-              How It Works
-            </Link>
-            <Link href="#products" className="text-[#1A1A1A] hover:text-[#0D4F3C] transition-colors">
-              Products
-            </Link>
-            <Link href="/docs" className="text-[#1A1A1A] hover:text-[#0D4F3C] transition-colors">
-              Agent API
-            </Link>
-          </div>
-          
-          <div className="flex items-center gap-2">
-            <Link href="/dashboard" className="text-xs sm:text-sm py-1.5 sm:py-2 px-3 sm:px-4 rounded-lg border border-[#0D4F3C] text-[#0D4F3C] hover:bg-[#0D4F3C] hover:text-white transition-all font-medium">
-              Dashboard
-            </Link>
-            <Link href="/agents" className="text-xs sm:text-sm py-1.5 sm:py-2 px-3 sm:px-4 rounded-lg bg-[#0D4F3C] text-white hover:bg-[#1A6B52] transition-all font-medium">
-              Agent
-            </Link>
-          </div>
-        </div>
-      </nav>
-
       {/* Hero Section */}
       <section className="pt-32 pb-20 px-6 relative overflow-hidden">
         {/* Background decoration */}
@@ -359,60 +333,6 @@ await provision.orders.confirmPayment({
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="bg-[#1A1A1A] text-white py-16 px-6">
-        <div className="container-custom">
-          <div className="grid md:grid-cols-4 gap-12">
-            <div>
-              <div className="flex items-center gap-2 mb-4">
-                <div className="w-10 h-10 rounded-xl bg-[#0D4F3C] flex items-center justify-center">
-                  <span className="text-white font-bold text-xl">P</span>
-                </div>
-                <span className="text-xl font-bold">Provision</span>
-              </div>
-              <p className="text-white text-opacity-60">
-                Agents provide. Humans thrive.
-              </p>
-            </div>
-            
-            <div>
-              <h4 className="font-semibold mb-4">Product</h4>
-              <ul className="space-y-2 text-white text-opacity-60">
-                <li><Link href="/products" className="hover:text-white transition-colors">Browse Products</Link></li>
-                <li><Link href="/docs" className="hover:text-white transition-colors">API Documentation</Link></li>
-                <li><Link href="/pricing" className="hover:text-white transition-colors">Pricing</Link></li>
-              </ul>
-            </div>
-            
-            <div>
-              <h4 className="font-semibold mb-4">Company</h4>
-              <ul className="space-y-2 text-white text-opacity-60">
-                <li><Link href="/about" className="hover:text-white transition-colors">About</Link></li>
-                <li><Link href="/blog" className="hover:text-white transition-colors">Blog</Link></li>
-                <li><Link href="/contact" className="hover:text-white transition-colors">Contact</Link></li>
-              </ul>
-            </div>
-            
-            <div>
-              <h4 className="font-semibold mb-4">Legal</h4>
-              <ul className="space-y-2 text-white text-opacity-60">
-                <li><Link href="/terms" className="hover:text-white transition-colors">Terms of Service</Link></li>
-                <li><Link href="/privacy" className="hover:text-white transition-colors">Privacy Policy</Link></li>
-              </ul>
-            </div>
-          </div>
-          
-          <div className="border-t border-white border-opacity-10 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
-            <p className="text-white text-opacity-40 text-sm">
-              © 2026 Provision. All rights reserved.
-            </p>
-            <div className="flex items-center gap-4 mt-4 md:mt-0">
-              <span className="text-white text-opacity-40 text-sm">Powered by</span>
-              <span className="text-[#F5A623]">Solana</span>
-            </div>
-          </div>
-        </div>
-      </footer>
-    </main>
+      </main>
   );
 }
