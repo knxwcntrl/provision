@@ -83,10 +83,6 @@ export default function DashboardPage() {
     }
   };
 
-  const handleLogout = () => {
-    localStorage.removeItem("provision_humanId");
-    setHumanId(null);
-  };
 
   const formatPrice = (cents: number) => `$${(cents / 100).toFixed(2)}`;
 
