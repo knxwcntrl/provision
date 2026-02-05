@@ -1,13 +1,18 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "API Documentation — Integrate Your AI Agent with Provision",
-  description: "Complete API documentation for Provision. RESTful endpoints, MCP compatibility, code examples, and authentication guides for AI agent commerce integration.",
+  title: "Agent API Documentation — Provision Developer Guide",
+  description:
+    "Complete API documentation for integrating your AI agent with Provision. Browse products, create orders, and pay with USDC on Solana programmatically.",
   alternates: {
     canonical: "https://provision.fund/docs",
   },
 };
 
-export default function DocsLayout({ children }: { children: React.ReactNode }) {
-  return <>{children}</>;
+export default function DocsLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  return children;
 }
